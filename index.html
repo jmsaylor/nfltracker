@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<div id ='stat'></div>
+
+<script>
+
+
+const key = 'wbd7wb63wk8n2zyexjzg37m7'
+
+const api_url = `https://api.sportradar.us/nfl/official/trial/v5/en/seasons/2019/standings.json?api_key=${key}`
+
+xhr = new XMLHttpRequest();
+
+xhr.open('GET', api_url, true)
+
+xhr.onload = () => {
+    const parsedData = JSON.parse(xhr.respnseText)
+
+    console.log(parsedData)
+}
+
+xhr.send()
+
+</script>    
+
+
+</body>
+</html>
