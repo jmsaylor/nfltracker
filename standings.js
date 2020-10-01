@@ -18,7 +18,7 @@ function readJSON(file) {
 
 let standings = readJSON('temp.json.nfl')
 
-console.log(standings.conferences[1].divisions[0].teams[3].records)
+console.log(standings.conferences[1].divisions[0].teams[3])
 
 
 

@@ -28,7 +28,7 @@ let top_keys_standings = Object.keys(standings) //[ 'season', 'week', 'conferenc
 // console.log('-----------------------------------')
 // console.log(standings.season)
 
-function team_ids() {
+const team_ids = () => {
     //gets team ids from standings.json, necessary for team profile lookups
 
     const team_ids = []

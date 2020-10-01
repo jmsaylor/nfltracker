@@ -28,5 +28,4 @@ console.log('-----------------------------------')
 
 const top_player_keys = Object.keys(profile.players[0])
 
-console.log(top_keys);
 

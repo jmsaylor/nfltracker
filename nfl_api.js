@@ -1,41 +1,27 @@
-const fetch = require('node-fetch')
 
-const fs = require('fs')
-
-const key = 'wbd7wb63wk8n2zyexjzg37m7'
-
+require('dotenv/config')
+// For interacting with Sport Radar API 
 //--------------------------------------------------
 
 //const url_path = 'nfl/official/trial/v5/en/seasons/2019/standings.json' //for standings
 
-const team_ids = fs.readFileSync('team_ids.txt', 'utf-8')
 
-//-------------------------------------------------
-
-const team = 'e627eec7-bbae-4fa4-8e73-8e1d6bc5c060'
-
-const url_path = `nfl/official/trial/v5/en/teams/${team}/profile.json`
-
-const api_url = `https://api.sportradar.us/${url_path}?api_key=${key}`
-
-//---------------------------------------------------
-
-async function nfl(api_url) {
+async function nfl_teamprofile(team_id) {
+    const fetch = require('node-fetch')
+    const key = process.env.API_KEY
+    const url_path = `nfl/official/trial/v5/en/teams/${team_id}/profile.json`
+    const api_url = `https://api.sportradar.us/${url_path}?api_key=${key}`
     try {
         const response = await fetch(api_url)
         if (!response.ok) {
             throw new Error("network response no good")
         } 
-        const myJSON = await response.text()
+        const myJSON = await response.json()
 
-        fs.writeFile()
+        return myJSON
     } catch (error) {
         console.log('try failed', error.message)
-    } finally {
-         //maybe put in some kind of tag
     }
 }
-
-console.log(team_ids);
 
 
